@@ -1,0 +1,12 @@
+@package.Import(Pizza.PackageEditor)
+@Pizza.Function(Start)[self,port]:
+sup=self.random("int",[485,285647])
+self.terminal(f"support code: {sup}")
+
+with open(r"C:\ProgramData\Pizza Package\Pizza\Ports\{0}.port".format(port),"w") as file:
+    file.write(f"support code:{sup}")
+    file.close()
+;
+@Pizza.Function(End)[self,port]:
+self.os.remove(r"C:\ProgramData\Pizza Package\Pizza\Ports\{0}.port".format(port))
+;
